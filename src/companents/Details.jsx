@@ -7,7 +7,6 @@ const Details = () => {
 
   const { id } = useParams();
   console.log(id);
-  
 
   useEffect(() => {
     let token = localStorage.getItem("token");
@@ -16,11 +15,15 @@ const Details = () => {
       return;
     }
     axios
-      .get(`https://nt-devconnector.onrender.com/profile/${id}`, {
+      .get(`https://nt-devconnector.onrender.com/api/profile/user/${id}`, {
         headers: { "x-auth-token": token },
       })
-      .then((res) => setDev(res.data))
-      .catch((error) => console.log("Xatoilik yuz berdi", error.response?.data || error.mesage));
+      .then((res) => setDev(res.data)
+      )
+      .catch((error) =>
+        console.log("Xatoilik yuz berdi", error.response?.data || error.mesage)
+      )
+      .finally(() => console.log("ok"));
   }, []);
 
   console.log(developer);

@@ -32,7 +32,7 @@ const Posts = () => {
             <h2>{dev.date}</h2>
             <h2>{dev.status}</h2>
 
-           <Link to={`/posts/${dev._id}`}>Details</Link>
+           <Link to={`/posts/${dev.user._id}`}>Details</Link>
 
           </div>
         );
